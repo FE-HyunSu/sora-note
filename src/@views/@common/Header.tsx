@@ -1,44 +1,53 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
+import { IntroViewRight } from '@styles/keyframes';
 
 const Header = () => {
-  return <HeaderUI>header</HeaderUI>;
+  return (
+    <HeaderUI>
+      <h1>
+        <Link href={'/'}>SORANOTE</Link>
+      </h1>
+    </HeaderUI>
+  );
 };
 
 export default Header;
 
 const HeaderUI = styled.header`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: 5rem;
   padding: 0 1.4rem;
-  background-color: #fff;
-  border: 0.1rem solid #eee;
+  background-color: rgba(169, 71, 104, 0.1);
   box-sizing: border-box;
   z-index: 10;
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-style: normal;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.4rem;
-    color: #222;
-    img {
-      display: inline-block;
-      width: 2rem;
-      height: 2rem;
-      margin-right: 0.5rem;
-    }
-    span {
-      font-weight: 300;
-      color: #aaa;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(1rem);
+    z-index: -1;
+  }
+  h1 {
+    a {
+      display: block;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: rgba(169, 71, 104, 0.8);
+      text-align: center;
+      animation: ${IntroViewRight} 1s 0.2s both;
     }
   }
   p {
@@ -55,19 +64,6 @@ const HeaderUI = styled.header`
       color: #fff;
       background-color: #3a3a3a;
       border-radius: 0.4rem;
-    }
-  }
-  & + main {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    min-height: calc(100vh - 10rem);
-    padding-top: 5rem;
-    overflow: hidden;
-    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-      min-height: calc(100vh - 10rem);
     }
   }
 `;
