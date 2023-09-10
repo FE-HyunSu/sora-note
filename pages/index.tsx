@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { IntroBtn, IntroViewRight } from '@styles/keyframes';
+import { useRouter } from 'next/router';
 
 const Index = () => {
-  const alertInfo = () => {
-    alert('준비중 입니다.');
-  };
+  const router = useRouter();
   return (
     <IntroUI>
       <Logo>
@@ -15,7 +14,7 @@ const Index = () => {
           <span>sora's work-note</span>
         </p>
       </Logo>
-      <BtnStart type="button" onClick={() => alertInfo()}>
+      <BtnStart type="button" onClick={() => router.push('/list')}>
         START
       </BtnStart>
     </IntroUI>

@@ -16,13 +16,16 @@ const List = () => {
     setDataMenuList(DataList.menuList);
   }, []);
   return (
-    <ListUI>
-      <ul>
-        {dataMenuList.map((item: ListItemT, idx: number) => {
-          return <ListItem key={idx} id={item.id} name={item.name} setCount={item.setCount} />;
-        })}
-      </ul>
-    </ListUI>
+    <React.Fragment>
+      (개발중..)
+      <ListUI>
+        <ul>
+          {dataMenuList.map((item: ListItemT, idx: number) => {
+            return <ListItem key={idx} id={item.id} name={item.name} setCount={item.setCount} />;
+          })}
+        </ul>
+      </ListUI>
+    </React.Fragment>
   );
 };
 
