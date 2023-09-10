@@ -2,63 +2,78 @@
   "menuList": [
     {
       "id": "1",
-      "name": "초코우유"
+      "name": "초코우유",
+      "setCount": 18
     },
     {
       "id": "2",
-      "name": "딸기우유"
+      "name": "딸기우유",
+      "setCount": 18
     },
     {
       "id": "3",
-      "name": "레드벨벳"
+      "name": "레드벨벳",
+      "setCount": 18
     },
     {
       "id": "4",
-      "name": "스윗드림"
+      "name": "스윗드림",
+      "setCount": 18
     },
     {
       "id": "5",
-      "name": "바닐라"
+      "name": "바닐라",
+      "setCount": 18
     },
     {
       "id": "6",
-      "name": "레몬라임"
+      "name": "레몬라임",
+      "setCount": 18
     },
     {
       "id": "7",
-      "name": "솔티드카라멜"
+      "name": "솔티드카라멜",
+      "setCount": 18
     },
     {
       "id": "8",
-      "name": "밀크쉐이크"
+      "name": "밀크쉐이크",
+      "setCount": 18
     },
     {
       "id": "9",
-      "name": "피치요거트"
+      "name": "피치요거트",
+      "setCount": 18
     },
     {
       "id": "10",
-      "name": "크림브륄레"
+      "name": "크림브륄레",
+      "setCount": 18
     },
     {
       "id": "11",
-      "name": "말차라떼"
+      "name": "말차라떼",
+      "setCount": 18
     },
     {
       "id": "12",
-      "name": "모카"
+      "name": "모카",
+      "setCount": 18
     },
     {
       "id": "12",
-      "name": "황치즈"
+      "name": "황치즈",
+      "setCount": 18
     },
     {
       "id": "13",
-      "name": "오레오"
+      "name": "오레오",
+      "setCount": 18
     },
     {
       "id": "14",
-      "name": "블루베리"
+      "name": "블루베리",
+      "setCount": 18
     }
   ]
 }

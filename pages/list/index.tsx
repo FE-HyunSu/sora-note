@@ -6,6 +6,7 @@ import ListItem from '@components/List/ListItem';
 interface ListItemT {
   id: string;
   name: string;
+  setCount: number;
 }
 
 const List = () => {
@@ -18,7 +19,7 @@ const List = () => {
     <ListUI>
       <ul>
         {dataMenuList.map((item: ListItemT, idx: number) => {
-          return <ListItem key={idx} id={item.id} name={item.name} />;
+          return <ListItem key={idx} id={item.id} name={item.name} setCount={item.setCount} />;
         })}
       </ul>
     </ListUI>
