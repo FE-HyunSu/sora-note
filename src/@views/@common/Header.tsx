@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <HeaderUI>
       <h1>
-        <Link href={'/'}>SORANOTE</Link>
+        <Link href={'/'}>
+          SORANOTE <span>(개발중..)</span>
+        </Link>
       </h1>
     </HeaderUI>
   );
@@ -48,6 +50,12 @@ const HeaderUI = styled.header`
       color: rgba(169, 71, 104, 0.8);
       text-align: center;
       animation: ${IntroViewRight} 1s 0.2s both;
+      span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: #888;
+      }
     }
   }
   p {

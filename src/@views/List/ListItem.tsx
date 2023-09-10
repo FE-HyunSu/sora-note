@@ -14,10 +14,10 @@ const ListItem = ({ name, id, setCount }: ListItemT) => {
     <ListItemUI>
       <em>{name}</em>
       <p>
-        <input type="number" placeholder={'수량'} ref={inputRef} />
+        <input type="tel" placeholder={'수량'} ref={inputRef} />
       </p>
       <p>
-        <input type="number" value={setCount} ref={setCountRef} />
+        <input type="tel" value={setCount} ref={setCountRef} />
       </p>
       <strong>
         1800개
