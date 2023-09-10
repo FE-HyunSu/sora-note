@@ -26,9 +26,9 @@ const List = () => {
                 <strong>재고수량</strong>
               </p>
               <p>
-                <strong>1Set</strong>
+                <strong>단위</strong>
               </p>
-              <strong>생산수량</strong>
+              <strong>수량결과</strong>
             </div>
           </ListTitle>
           {dataMenuList.map((item: ListItemT, idx: number) => {

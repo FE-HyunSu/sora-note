@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 
 interface ListItemT {
@@ -10,19 +10,30 @@ interface ListItemT {
 const ListItem = ({ name, id, setCount }: ListItemT) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const setCountRef = useRef<HTMLInputElement>(null);
+  const [isCountNum, setCountNum] = useState<string>('');
+  // const [isCountNum, setCountNum] = useState<string>('');
+
+  const countCalculator = () => {
+    if (inputRef.current && setCountRef.current)
+      setCountNum(
+        Math.round(Number(inputRef.current.value) / Number(setCountRef.current.value)) +
+          'Set / ' +
+          (Number(inputRef.current.value) % Number(setCountRef.current.value))
+      );
+  };
+
   return (
     <ListItemUI>
       <em>{name}</em>
       <p>
-        <input type="tel" placeholder={'수량'} ref={inputRef} />
+        <input type="tel" placeholder={'수량'} ref={inputRef} onChange={() => countCalculator()} />
       </p>
       <p>
-        <input type="tel" value={setCount} ref={setCountRef} />
+        <input type="tel" ref={setCountRef} onChange={() => countCalculator()} />
       </p>
       <strong>
-        1800개
-        <br />
-        <span>(100Set/0)</span>
+        {isCountNum}
+        {/* <span>(100Set/0)</span> */}
       </strong>
     </ListItemUI>
   );
