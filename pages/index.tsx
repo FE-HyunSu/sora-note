@@ -36,9 +36,6 @@ const IntroUI = styled.div`
   min-height: 40rem;
   z-index: 10;
   background-color: #f3d2e0;
-  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    min-height: -webkit-fill-available;
-  }
 `;
 
 const Logo = styled.div`
