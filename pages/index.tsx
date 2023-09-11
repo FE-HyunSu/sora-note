@@ -15,7 +15,7 @@ const Index = () => {
         </p>
       </Logo>
       <BtnStart type="button" onClick={() => router.push('/list')}>
-        START
+        JOIN
       </BtnStart>
     </IntroUI>
   );
@@ -96,10 +96,9 @@ const Logo = styled.div`
 
 const BtnStart = styled.button`
   display: block;
-  position: absolute;
-  bottom: 4rem;
   width: 20rem;
   height: 5rem;
+  margin: 12rem auto -12rem;
   font-size: 1.4rem;
   color: rgba(169, 71, 104, 0.6);
   background-color: rgba(169, 71, 104, 0.2);
