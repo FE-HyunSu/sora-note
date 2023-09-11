@@ -90,7 +90,7 @@ const ListItemUI = styled.li`
     font-size: 1.4rem;
   }
   p {
-    width: 5rem;
+    width: 6rem;
     border: 1px solid #eee;
     input {
       -webkit-appearance: none;
@@ -100,6 +100,7 @@ const ListItemUI = styled.li`
       outline: 0;
       width: calc(100% - 2px);
       padding: 1rem 0.5rem;
+      font-size: 1.4rem;
       box-sizing: border-box;
       text-align: center;
     }
@@ -110,6 +111,7 @@ const ListItemUI = styled.li`
   strong {
     display: block;
     min-width: 4rem;
+    padding: 0 0.5rem;
     font-weight: 700;
     font-size: 1.4rem;
     span {
@@ -122,7 +124,7 @@ const ListItemUI = styled.li`
 
 const BtnSave = styled.button`
   display: block;
-  width: 4rem;
+  width: 5rem;
   height: 3rem;
   margin-left: 1rem;
   font-size: 1.2rem;

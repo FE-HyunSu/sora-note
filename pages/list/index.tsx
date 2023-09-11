@@ -177,7 +177,7 @@ const ListTitle = styled.li`
       font-size: 1.2rem;
     }
     p {
-      width: 5rem;
+      width: 6rem;
       font-size: 1.2rem;
       strong {
         font-weight: 700;
