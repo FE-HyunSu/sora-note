@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useRecoilState } from 'recoil';
 import { dataListAtom } from '@store/store';
@@ -51,6 +51,10 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
     setValue2(Number(val));
     countCalculator();
   };
+
+  useEffect(() => {
+    countCalculator();
+  }, []);
 
   return (
     <ListItemUI>
