@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 interface ListItemT {
@@ -10,16 +10,19 @@ interface ListItemT {
 const ListItem = ({ name, id, setCount }: ListItemT) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const setCountRef = useRef<HTMLInputElement>(null);
-  const [isCountNum, setCountNum] = useState<string>('');
-  // const [isCountNum, setCountNum] = useState<string>('');
+  const [isSet, setSet] = useState<number>(0);
+  const [isCountNum, setCountNum] = useState<number>(0);
+
+  useEffect(() => {}, []);
 
   const countCalculator = () => {
-    if (inputRef.current && setCountRef.current)
-      setCountNum(
-        Math.round(Number(inputRef.current.value) / Number(setCountRef.current.value)) +
-          'Set / ' +
-          (Number(inputRef.current.value) % Number(setCountRef.current.value))
-      );
+    if (inputRef.current && setCountRef.current) {
+      setSet(Math.round(Number(inputRef.current.value) / Number(setCountRef.current.value)));
+      setCountNum(Number(inputRef.current.value) % Number(setCountRef.current.value));
+    } else {
+      setSet(0);
+      setCountNum(0);
+    }
   };
 
   return (
@@ -32,8 +35,9 @@ const ListItem = ({ name, id, setCount }: ListItemT) => {
         <input type="tel" ref={setCountRef} onChange={() => countCalculator()} />
       </p>
       <strong>
-        {isCountNum}
-        {/* <span>(100Set/0)</span> */}
+        {isSet}Set
+        <br />
+        <span>({isCountNum})</span>
       </strong>
     </ListItemUI>
   );
@@ -63,6 +67,7 @@ const ListItemUI = styled.li`
       width: calc(100% - 2px);
       padding: 1rem;
       box-sizing: border-box;
+      text-align: center;
     }
     & + p {
       margin: 0 0.5rem;
@@ -70,7 +75,7 @@ const ListItemUI = styled.li`
   }
   strong {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     span {
       font-weight: 400;
       font-size: 1.1rem;

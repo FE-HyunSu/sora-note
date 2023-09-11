@@ -73,6 +73,7 @@ const ListTitle = styled.li`
       }
       & + p {
         margin: 0 0.5rem;
+        text-align: center;
       }
     }
     strong {
