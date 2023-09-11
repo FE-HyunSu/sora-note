@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import DataList from '@static/data/menuInfo.json';
 import ListItem from '@components/List/ListItem';
+import { useRecoilValue } from 'recoil';
+import { dataListAtom } from '@store/store';
 
 interface ListItemT {
   id: string;
   name: string;
   setCount: number;
+  totalCount: number;
 }
 
 const List = () => {
   const [dataMenuList, setDataMenuList] = useState<ListItemT[]>([]);
+  const isDataListAtom = useRecoilValue(dataListAtom);
 
   useEffect(() => {
-    setDataMenuList(DataList.menuList);
+    setDataMenuList(isDataListAtom);
   }, []);
   return (
     <React.Fragment>
@@ -32,7 +35,9 @@ const List = () => {
             </div>
           </ListTitle>
           {dataMenuList.map((item: ListItemT, idx: number) => {
-            return <ListItem key={idx} id={item.id} name={item.name} setCount={item.setCount} />;
+            return (
+              <ListItem key={idx} id={item.id} name={item.name} setCount={item.setCount} totalCount={item.totalCount} />
+            );
           })}
         </ul>
       </ListUI>
