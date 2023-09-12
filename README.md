@@ -13,8 +13,8 @@
 
 ### 🫓 작업 방향.
 
-- 1차 : store 데이터 계산 로직만 적용 빠른 사용 버전. (localstorage ver.)
-- 2차 : 관리자 로그인, 데이터 CRUD, 데일리 결과값 저장. (Database ver.)
+- 1차 : 개인사용 버전. store 데이터를 통한 계산 로직 적용. (localstorage ver.)
+- 2차 : 정보공유 버전. 공통 관리자 로그인, 데이터 CRUD, 데일리 결과값 저장. (Database ver.)
 
 ### 🥮 URL.
 
