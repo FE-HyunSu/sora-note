@@ -66,7 +66,8 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
         <input type="tel" ref={setCountRef} value={value2} onChange={(e) => handleChangeSet(e)} />
       </p>
       <strong>
-        {isSet}Set
+        {isSet}
+        <span>set</span>
         <br />
         <span>({isCountNum})</span>
       </strong>
