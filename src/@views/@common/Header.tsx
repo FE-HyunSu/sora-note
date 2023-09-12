@@ -8,7 +8,7 @@ const Header = () => {
     <HeaderUI>
       <h1>
         <Link href={'/'}>
-          SORANOTE <span>(개발중..)</span>
+          SORANOTE <span>.Ver1</span>
         </Link>
       </h1>
     </HeaderUI>
@@ -53,8 +53,8 @@ const HeaderUI = styled.header`
       span {
         font-style: normal;
         font-weight: 400;
-        font-size: 1.2rem;
-        color: #888;
+        font-size: 1.1rem;
+        color: rgba(0, 0, 0, 0.3);
       }
     }
   }
