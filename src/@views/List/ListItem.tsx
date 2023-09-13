@@ -87,11 +87,12 @@ const ListItemUI = styled.li`
   border-bottom: 0.1rem solid #eee;
   em {
     display: block;
+    flex-shrink: 0;
     width: 8rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   p {
-    width: 6rem;
+    width: auto;
     border: 1px solid #eee;
     input {
       -webkit-appearance: none;
@@ -111,6 +112,7 @@ const ListItemUI = styled.li`
   }
   strong {
     display: block;
+    flex: auto;
     min-width: 4rem;
     padding: 0 0.5rem;
     font-weight: 700;
@@ -125,6 +127,7 @@ const ListItemUI = styled.li`
 
 const BtnSave = styled.button`
   display: block;
+  flex-shrink: 0;
   width: 5rem;
   height: 3rem;
   margin-left: 1rem;

@@ -38,12 +38,13 @@ const List = () => {
             <div>
               <em>품목</em>
               <p>
-                <strong>재고수량</strong>
+                <strong>재고</strong>
               </p>
               <p>
                 <strong>단위</strong>
               </p>
-              <strong>수량결과</strong>
+              <strong>결과</strong>
+              <span>저장</span>
             </div>
           </ListTitle>
           {dataMenuList.map((item: ListItemT, idx: number) => {
@@ -63,6 +64,9 @@ const List = () => {
 export default List;
 
 const ListUI = styled.div`
+  width: 100%;
+  max-width: 42rem;
+  margin: auto;
   ul {
   }
 `;
@@ -81,12 +85,14 @@ const ListTitle = styled.li`
     border-bottom: 0.1rem solid #eee;
     em {
       display: block;
+      flex-shrink: 0;
       width: 8rem;
       font-weight: 700;
       font-size: 1.2rem;
     }
     p {
-      width: 6rem;
+      flex: 1;
+      width: auto;
       font-size: 1.2rem;
       strong {
         font-weight: 700;
@@ -96,9 +102,20 @@ const ListTitle = styled.li`
         text-align: center;
       }
     }
-    strong {
+    span {
+      display: block;
+      width: 5rem;
       font-weight: 700;
       font-size: 1.2rem;
+      text-align: center;
+    }
+    strong {
+      display: block;
+      flex: auto;
+      min-width: 4rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-align: center;
       span {
         font-weight: 400;
         font-size: 1.1rem;
