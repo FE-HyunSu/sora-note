@@ -11,5 +11,6 @@ export const dataListAtom = atom({
 
 export const pageModeAtom = atom({
   key: 'pageModeAtom',
-  default: 'home',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
 });

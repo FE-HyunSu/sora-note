@@ -2,8 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { IntroViewRight } from '@styles/keyframes';
+import { useRecoilState } from 'recoil';
+import { pageModeAtom } from '@store/store';
 
 const Header = () => {
+  const [isPageModeAtom, setPageModeAtom] = useRecoilState(pageModeAtom);
   return (
     <HeaderUI>
       <h1>
@@ -11,6 +14,12 @@ const Header = () => {
           SORANOTE <span>.Ver1</span>
         </Link>
       </h1>
+      <BtnToggle
+        type="button"
+        onClick={() => setPageModeAtom(!isPageModeAtom)}
+        className={isPageModeAtom ? `active` : ``}>
+        {isPageModeAtom ? `Type 재고` : `Type 생산`}
+      </BtnToggle>
     </HeaderUI>
   );
 };
@@ -42,8 +51,9 @@ const HeaderUI = styled.header`
     z-index: -1;
   }
   h1 {
+    flex: auto;
     a {
-      display: block;
+      display: inline-block;
       font-style: italic;
       font-weight: 700;
       font-size: 1.6rem;
@@ -73,5 +83,18 @@ const HeaderUI = styled.header`
       background-color: #3a3a3a;
       border-radius: 0.4rem;
     }
+  }
+`;
+
+const BtnToggle = styled.button`
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #fff;
+  background-color: #333;
+  border-radius: 0.5rem;
+  transition: 0.2s;
+  &.active {
+    background-color: #9d4d68;
   }
 `;
