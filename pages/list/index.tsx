@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import ListItem from '@components/List/ListItem';
-import { useRecoilState, useResetRecoilState } from 'recoil';
-import { dataListAtom } from '@store/store';
+import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil';
+import { dataListAtom, pageModeAtom } from '@store/store';
 
 interface ListItemT {
   id: string;
@@ -14,6 +14,7 @@ interface ListItemT {
 const List = () => {
   const [dataMenuList, setDataMenuList] = useState<ListItemT[]>([]);
   const [isDataListAtom, setDataListAtom] = useRecoilState(dataListAtom);
+  const isPageModeAtom = useRecoilValue<boolean>(pageModeAtom);
   const resetCount = useResetRecoilState(dataListAtom);
 
   const dataReset = () => {
@@ -38,7 +39,7 @@ const List = () => {
             <div>
               <em>품목</em>
               <p>
-                <strong>재고</strong>
+                <strong>{isPageModeAtom ? `재고` : `생산`}</strong>
               </p>
               <p>
                 <strong>단위</strong>
