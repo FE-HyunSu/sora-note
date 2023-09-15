@@ -3,12 +3,15 @@ import styled from '@emotion/styled';
 import ListItem from '@components/List/ListItem';
 import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil';
 import { dataListAtom, pageModeAtom } from '@store/store';
+import ProductItem from '@components/List/ProductItem';
 
 interface ListItemT {
   id: string;
   name: string;
   setCount: number;
   totalCount: number;
+  productSetCount: number;
+  productTotalCount: number;
 }
 
 const List = () => {
@@ -38,21 +41,58 @@ const List = () => {
           <ListTitle>
             <div>
               <em>품목</em>
-              <p>
-                <strong>{isPageModeAtom ? `재고` : `생산`}</strong>
-              </p>
-              <p>
-                <strong>단위</strong>
-              </p>
+              {isPageModeAtom ? (
+                <React.Fragment>
+                  <p>
+                    <strong>재고</strong>
+                  </p>
+                  <p>
+                    <strong>단위</strong>
+                  </p>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <p>
+                    <strong>단위</strong>
+                  </p>
+                  <p>
+                    <strong>생산</strong>
+                  </p>
+                </React.Fragment>
+              )}
               <strong>결과</strong>
               <span>저장</span>
             </div>
           </ListTitle>
-          {dataMenuList.map((item: ListItemT, idx: number) => {
-            return (
-              <ListItem key={idx} id={item.id} name={item.name} setCount={item.setCount} totalCount={item.totalCount} />
-            );
-          })}
+          {isPageModeAtom ? (
+            <React.Fragment>
+              {dataMenuList.map((item: ListItemT, idx: number) => {
+                return (
+                  <ListItem
+                    key={idx}
+                    id={item.id}
+                    name={item.name}
+                    setCount={item.setCount}
+                    totalCount={item.totalCount}
+                  />
+                );
+              })}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {dataMenuList.map((item: ListItemT, idx: number) => {
+                return (
+                  <ProductItem
+                    key={idx}
+                    id={item.id}
+                    name={item.name}
+                    productSetCount={item.productSetCount}
+                    productTotalCount={item.productTotalCount}
+                  />
+                );
+              })}
+            </React.Fragment>
+          )}
         </ul>
         <BtnFixed type="button" onClick={() => dataReset()}>
           초기화
