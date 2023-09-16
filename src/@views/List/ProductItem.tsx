@@ -22,8 +22,8 @@ const ProductItem = ({ name, id, productSetCount, productTotalCount }: ProductIt
   const dataSave = () => {
     let cloneData = [...isDataListAtom];
     let filterData = { ...cloneData.filter((item) => item.id === id)[0] };
-    filterData.totalCount = inputRef.current ? Number(inputRef.current.value) : 0;
-    filterData.setCount = setCountRef.current ? Number(setCountRef.current.value) : 0;
+    filterData.productSetCount = inputRef.current ? Number(inputRef.current.value) : 0;
+    filterData.productTotalCount = setCountRef.current ? Number(setCountRef.current.value) : 0;
     let uploadData = [...cloneData.filter((item) => item.id !== id)];
     uploadData.push(filterData);
     uploadData.sort((a, b) => Number(a.id) - Number(b.id));
@@ -32,8 +32,16 @@ const ProductItem = ({ name, id, productSetCount, productTotalCount }: ProductIt
 
   const countCalculator = () => {
     if (inputRef.current && setCountRef.current) {
-      setSet(Math.floor(Number(inputRef.current.value) / Number(setCountRef.current.value)));
-      setCountNum(Number(inputRef.current.value) % Number(setCountRef.current.value));
+      setSet(
+        Number(setCountRef.current.value) * Number(inputRef.current.value) === 0
+          ? 0
+          : Math.floor(Number(setCountRef.current.value) / Number(inputRef.current.value))
+      );
+      setCountNum(
+        Number(setCountRef.current.value) * Number(inputRef.current.value) === 0
+          ? 0
+          : Number(inputRef.current.value) % Number(setCountRef.current.value)
+      );
     } else {
       setSet(0);
       setCountNum(0);
@@ -60,10 +68,10 @@ const ProductItem = ({ name, id, productSetCount, productTotalCount }: ProductIt
     <ProductItemUI>
       <em>{name}</em>
       <p>
-        <input type="tel" placeholder={'수량'} ref={inputRef} value={value2} onChange={(e) => handleChangeTotal(e)} />
+        <input type="tel" placeholder={'수량'} ref={inputRef} value={value2} onChange={(e) => handleChangeSet(e)} />
       </p>
       <p>
-        <input type="tel" ref={setCountRef} value={value1} onChange={(e) => handleChangeSet(e)} />
+        <input type="tel" ref={setCountRef} value={value1} onChange={(e) => handleChangeTotal(e)} />
       </p>
       <strong>
         {isSet}

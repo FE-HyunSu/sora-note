@@ -32,7 +32,7 @@ const List = () => {
 
   useEffect(() => {
     setDataMenuList(isDataListAtom);
-  }, []);
+  }, [isDataListAtom, isPageModeAtom]);
 
   return (
     <React.Fragment>
