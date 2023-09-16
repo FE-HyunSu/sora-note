@@ -60,10 +60,10 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
     <ListItemUI>
       <em>{name}</em>
       <p>
-        <input type="tel" placeholder={'수량'} ref={inputRef} value={value1} onChange={(e) => handleChangeTotal(e)} />
+        <input type="tel" placeholder={'재고'} ref={inputRef} value={value1} onChange={(e) => handleChangeTotal(e)} />
       </p>
-      <p>
-        <input type="tel" ref={setCountRef} value={value2} onChange={(e) => handleChangeSet(e)} />
+      <p className="target">
+        <input type="tel" placeholder={'단위'} ref={setCountRef} value={value2} onChange={(e) => handleChangeSet(e)} />
       </p>
       <strong>
         {isSet}
@@ -94,6 +94,11 @@ const ListItemUI = styled.li`
   p {
     width: auto;
     border: 1px solid #eee;
+    &.target {
+      flex-shrink: 0;
+      width: 4rem;
+      background-color: #eee;
+    }
     input {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -103,6 +108,7 @@ const ListItemUI = styled.li`
       width: calc(100% - 2px);
       padding: 1rem 0.5rem;
       font-size: 1.4rem;
+      background-color: transparent;
       box-sizing: border-box;
       text-align: center;
     }

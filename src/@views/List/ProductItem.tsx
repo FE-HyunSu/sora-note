@@ -67,7 +67,7 @@ const ProductItem = ({ name, id, productSetCount, productTotalCount }: ProductIt
   return (
     <ProductItemUI>
       <em>{name}</em>
-      <p>
+      <p className="target">
         <input type="tel" placeholder={'수량'} ref={inputRef} value={value2} onChange={(e) => handleChangeSet(e)} />
       </p>
       <p>
@@ -102,6 +102,11 @@ const ProductItemUI = styled.li`
   p {
     width: auto;
     border: 1px solid #eee;
+    &.target {
+      flex-shrink: 0;
+      width: 4rem;
+      background-color: #eee;
+    }
     input {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -111,6 +116,7 @@ const ProductItemUI = styled.li`
       width: calc(100% - 2px);
       padding: 1rem 0.5rem;
       font-size: 1.4rem;
+      background-color: transparent;
       box-sizing: border-box;
       text-align: center;
     }
