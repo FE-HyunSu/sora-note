@@ -18,6 +18,7 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
   const [isCountNum, setCountNum] = useState<number>(0);
   const [value1, setValue1] = useState<number>(totalCount);
   const [value2, setValue2] = useState<number>(setCount);
+  const [isChange, setChange] = useState<boolean>(false);
 
   const dataSave = () => {
     let cloneData = [...isDataListAtom];
@@ -28,6 +29,16 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
     uploadData.push(filterData);
     uploadData.sort((a, b) => Number(a.id) - Number(b.id));
     setDataListAtom(uploadData);
+    alert('저장되었습니다.');
+    setChange(false);
+  };
+
+  const changeCheck = () => {
+    if (inputRef.current && setCountRef.current) {
+      Number(setCountRef.current.value) !== setCount || Number(inputRef.current.value) !== totalCount
+        ? setChange(true)
+        : setChange(false);
+    }
   };
 
   const countCalculator = () => {
@@ -44,12 +55,14 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
     const val = e.target.value;
     setValue1(Number(val));
     countCalculator();
+    changeCheck();
   };
 
   const handleChangeSet = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setValue2(Number(val));
     countCalculator();
+    changeCheck();
   };
 
   useEffect(() => {
@@ -71,7 +84,7 @@ const ListItem = ({ name, id, setCount, totalCount }: ListItemT) => {
         <br />
         <span>({isCountNum})</span>
       </strong>
-      <BtnSave type="button" onClick={() => dataSave()}>
+      <BtnSave type="button" onClick={() => dataSave()} className={isChange ? `active` : ``}>
         저장
       </BtnSave>
     </ListItemUI>
@@ -138,7 +151,11 @@ const BtnSave = styled.button`
   height: 3rem;
   margin-left: 1rem;
   font-size: 1.2rem;
-  color: #fff;
-  background-color: #9d4d68;
+  color: #d3c4c9;
+  background-color: #b08594;
   border-radius: 0.6rem;
+  &.active {
+    color: #fff;
+    background-color: #9d4d68;
+  }
 `;

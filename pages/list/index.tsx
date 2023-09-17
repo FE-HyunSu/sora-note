@@ -90,7 +90,7 @@ const List = () => {
           )}
         </ul>
         <BtnFixed type="button" onClick={() => dataReset()}>
-          초기화
+          전체 초기화
         </BtnFixed>
       </ListUI>
     </React.Fragment>
