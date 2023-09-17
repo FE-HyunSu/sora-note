@@ -16,7 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
         <meta property="og:title" content="SoraNote" />
-        <meta property="og:description" content="Sora-note" />
+        <meta property="og:description" content="소라 베이킹 노트" />
         <meta property="og:image" content={IMAGES.META} />
         <link rel="icon" href={ICONS.FAVICON} />
         <title>SoraNote</title>
