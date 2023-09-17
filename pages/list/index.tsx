@@ -51,37 +51,13 @@ const List = () => {
               ) : (
                 <React.Fragment>
                   <p className="title-name">품목</p>
+                  <p className="title-total">세트 수</p>
                   <p className="title-count">단위</p>
-                  <p className="title-total">생산</p>
                   <p className="title-result">결과</p>
                   <p className="title-save">저장</p>
                 </React.Fragment>
               )}
             </div>
-            {/* <div>
-              <em>품목</em>
-              {isPageModeAtom ? (
-                <React.Fragment>
-                  <p>
-                    <strong>재고</strong>
-                  </p>
-                  <p className="target">
-                    <strong>단위</strong>
-                  </p>
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <p className="target">
-                    <strong>단위</strong>
-                  </p>
-                  <p>
-                    <strong>생산</strong>
-                  </p>
-                </React.Fragment>
-              )}
-              <strong>결과</strong>
-              <span>저장</span>
-            </div> */}
           </ListTitle>
           {isPageModeAtom ? (
             <React.Fragment>
